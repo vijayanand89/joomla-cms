@@ -207,7 +207,7 @@ $sortFields = $this->getSortFields();
 								?>
 						</div>
 					</td>
-					<td class="small hidden-phone">
+					<td class="hidden-phone">
 						<?php if ($item->position) : ?>
 							<span class="label label-info">
 								<?php echo $item->position; ?>
@@ -218,17 +218,17 @@ $sortFields = $this->getSortFields();
 							</span>
 						<?php endif; ?>
 					</td>
-					<td class="small hidden-phone">
+					<td class="hidden-phone">
 						<?php echo $item->name;?>
 					</td>
-					<td class="small hidden-phone">
+					<td class="hidden-phone">
 						<?php echo $item->pages; ?>
 					</td>
 
-					<td class="small hidden-phone">
+					<td class="hidden-phone">
 						<?php echo $this->escape($item->access_level); ?>
 					</td>
-					<td class="small hidden-phone">
+					<td class="hidden-phone">
 						<?php if ($item->language == ''):?>
 							<?php echo JText::_('JDEFAULT'); ?>
 						<?php elseif ($item->language == '*'):?>
