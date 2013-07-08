@@ -209,13 +209,9 @@ $sortFields = $this->getSortFields();
 					</td>
 					<td class="small hidden-phone">
 						<?php if ($item->position) : ?>
-							<span>
 								<?php echo $item->position; ?>
-							</span>
 						<?php else : ?>
-							<span>
 								<?php echo JText::_('JNONE'); ?>
-							</span>
 						<?php endif; ?>
 					</td>
 					<td class="small hidden-phone">
