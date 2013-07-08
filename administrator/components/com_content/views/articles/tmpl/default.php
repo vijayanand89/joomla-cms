@@ -228,7 +228,7 @@ $assoc		= isset($app->item_associations) ? $app->item_associations : 0;
 								?>
 						</div>
 					</td>
-					<td class="small hidden-phone">
+					<td class="hidden-phone">
 						<?php echo $this->escape($item->access_level); ?>
 					</td>
 					<?php if ($assoc) : ?>
@@ -238,7 +238,7 @@ $assoc		= isset($app->item_associations) ? $app->item_associations : 0;
 						<?php endif; ?>
 					</td>
 					<?php endif;?>
-					<td class="small hidden-phone">
+					<td class="hidden-phone">
 						<?php if ($item->created_by_alias) : ?>
 							<a href="<?php echo JRoute::_('index.php?option=com_users&task=user.edit&id='.(int) $item->created_by); ?>" title="<?php echo JText::_('JAUTHOR'); ?>">
 							<?php echo $this->escape($item->author_name); ?></a>
@@ -248,14 +248,14 @@ $assoc		= isset($app->item_associations) ? $app->item_associations : 0;
 							<?php echo $this->escape($item->author_name); ?></a>
 						<?php endif; ?>
 					</td>
-					<td class="small hidden-phone">
+					<td class="hidden-phone">
 						<?php if ($item->language == '*'):?>
 							<?php echo JText::alt('JALL', 'language'); ?>
 						<?php else:?>
 							<?php echo $item->language_title ? $this->escape($item->language_title) : JText::_('JUNDEFINED'); ?>
 						<?php endif;?>
 					</td>
-					<td class="nowrap small hidden-phone">
+					<td class="nowrap hidden-phone">
 						<?php echo JHtml::_('date', $item->created, JText::_('DATE_FORMAT_LC4')); ?>
 					</td>
 					<td class="center">
