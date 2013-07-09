@@ -26,7 +26,6 @@ class ContentViewFeatured extends JViewLegacy
 	 */
 	public function display($tpl = null)
 	{
-		ContentHelper::addSubmenu('featured');
 
 		$this->items      = $this->get('Items');
 		$this->pagination = $this->get('Pagination');
