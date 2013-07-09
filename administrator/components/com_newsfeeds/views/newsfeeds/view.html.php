@@ -29,9 +29,13 @@ class NewsfeedsViewNewsfeeds extends JViewLegacy
 	 */
 	public function display($tpl = null)
 	{
+		$app = JFactory::getApplication();
+
 		$this->items		= $this->get('Items');
 		$this->pagination	= $this->get('Pagination');
 		$this->state		= $this->get('State');
+		$this->langs	= isset($app->has_languages) ? $app->has_languages : 0;
+		$this->assoc	= isset($app->item_associations) ? $app->item_associations : 0;
 
 		NewsfeedsHelper::addSubmenu('newsfeeds');
 
@@ -123,11 +127,15 @@ class NewsfeedsViewNewsfeeds extends JViewLegacy
 			JHtml::_('select.options', JHtml::_('access.assetgroups'), 'value', 'text', $this->state->get('filter.access'))
 		);
 
-		JHtmlSidebar::addFilter(
-			JText::_('JOPTION_SELECT_LANGUAGE'),
-			'filter_language',
-			JHtml::_('select.options', JHtml::_('contentlanguage.existing', true, true), 'value', 'text', $this->state->get('filter.language'))
-		);
+
+		if ($this->langs)
+		{
+			JHtmlSidebar::addFilter(
+				JText::_('JOPTION_SELECT_LANGUAGE'),
+				'filter_language',
+				JHtml::_('select.options', JHtml::_('contentlanguage.existing', true, true), 'value', 'text', $this->state->get('filter.language'))
+			);
+		}
 
 		JHtmlSidebar::addFilter(
 		JText::_('JOPTION_SELECT_TAG'),

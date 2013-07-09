@@ -37,10 +37,13 @@ class BannersViewBanners extends JViewLegacy
 	 */
 	public function display($tpl = null)
 	{
+		$app = JFactory::getApplication();
+
 		$this->categories	= $this->get('CategoryOrders');
 		$this->items		= $this->get('Items');
 		$this->pagination	= $this->get('Pagination');
 		$this->state		= $this->get('State');
+		$this->langs		= isset($app->has_languages) ? $app->has_languages : 0;
 
 		// Check for errors.
 		if (count($errors = $this->get('Errors')))
@@ -162,11 +165,14 @@ class BannersViewBanners extends JViewLegacy
 			JHtml::_('select.options', JHtml::_('category.options', 'com_banners'), 'value', 'text', $this->state->get('filter.category_id'))
 		);
 
-		JHtmlSidebar::addFilter(
-			JText::_('JOPTION_SELECT_LANGUAGE'),
-			'filter_language',
-			JHtml::_('select.options', JHtml::_('contentlanguage.existing', true, true), 'value', 'text', $this->state->get('filter.language'))
-		);
+		if ($this->langs)
+		{
+			JHtmlSidebar::addFilter(
+				JText::_('JOPTION_SELECT_LANGUAGE'),
+				'filter_language',
+				JHtml::_('select.options', JHtml::_('contentlanguage.existing', true, true), 'value', 'text', $this->state->get('filter.language'))
+			);
+		}
 	}
 
 	/**

@@ -194,12 +194,14 @@ JHtml::_('formbehavior.chosen', 'select');
 						<?php echo $this->form->getInput('access'); ?>
 					</div>
 				</div>
+				<?php if ($this->langs) : ?>
 				<div class="control-group">
 					<?php echo $this->form->getLabel('language'); ?>
 					<div class="controls">
 						<?php echo $this->form->getInput('language'); ?>
 					</div>
 				</div>
+				<?php endif; ?>
 				<div class="control-group">
 					<?php echo $this->form->getLabel('tags'); ?>
 					<div class="controls">
